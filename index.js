@@ -53,6 +53,29 @@ console.log(d, e, f);
 //console.log(temp);
 //console.log("Hello world from A to Z!!!");
 
+var temp = 11 * 3;
+
+console.log((temp % 2 !== 0) ? "So temp la so le!":"So temp la so chan!");
+/*
+if(temp % 2 === 0) {
+    console.log("So temp la so chan!");
+}
+else {
+    console.log("So temp la so le!!!");
+}
+*/
+let dtb = 8.2;
+
+if(dtb < 5) {
+    console.log("Xep loai Yeu!");
+}
+else if(dtb >= 5 && dtb < 8) {
+    console.log("Xep loai Kha!");
+}
+else {//dtb > 8
+    console.log("Xep loai Gioi!");
+}
+
 app.listen(port, () => {
 //   console.log(`Example app listening on port ${port}`)
 })
