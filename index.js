@@ -2,56 +2,57 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-let firstName = "HIEU";
-let lastName = "BUI MINH";
-/*
-let temp = {
-    obj1: {
-        id: 1,
-        name: "TEST BOOK",
-        desc: "This is testing for Test book!!!",
-        branch: "master",
-    },
-    obj2:
-        id: 2,
-        name: "DEMO BOOK",
-        desc: "This is testing for Demo book!!!",
-        branch: "staging",
-    },
-    obj3: {
-        id: 3,
-        name: "LIVE BOOK",
-        desc: "This is testing for Live book!!!",
-        branch: "live",
-    },
-};
-*/
+//1. TINH TONG CAC SO CHAN TU 1 DEN 20
+let sum1 = 0;
 
-let name = "Chaos Thunder";
-let message = name;
+for(let i = 0; i <= 20; i++) {
+	sum1 += ((i % 2) == 0) ? i : 0;
+}
+console.log(`1. TONG SO CHAN TU 1 DEN 20: ${sum1}`);
 
-let a = "5000";
-let b = "TESTING";
-let c = "";
-//console.log('a & b before swapping: ' + a + " - " + b);
-c = b;
-b = a;
-a = c;
-//console.log('a & b after swapping: ' + a + " - " + b);
 
-let s = 37;
-let result = (s * 6 * 2) ** 3;
-result = Math.pow(s * 6 * 2, 3);
-console.log(result);
-console.log("5" ** 2);
+//2. TINH GIAI THUA CUA 1 SO NGUYEN DUONG BAT KY
+let n = 10;
+let factorial = 1;
+let formatted = "";
 
-let d, e, f = 10;
-console.log(d, e, f);
+for(let i = 1; i <= n; i++) {
+	factorial *= i;
+}
+formatted = factorial.toLocaleString("en-US");
+console.log(`2. GIAI THUA CUA SO ${n}: ${formatted}`);
 
-//console.log(message);
-//console.log(firstName + " " + lastName + "\r\n");
-//console.log(temp);
-//console.log("Hello world from A to Z!!!");
+
+//3. TINH TONG CAC SO NGUYEN TO TU 1 DEN 100
+let m = 1;
+let max = 100;
+let sum2 = 0;
+
+function isPrimeNumber(n) {
+    if(n === null || typeof(n) === 'undefined' || isNaN(n)) {
+        return false;
+    }
+    if(n < 2) {
+        return false;
+    }
+    if(n === 2) {
+        return true;
+    }
+    for(let i = 2; i < n; i++) {
+        if(n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+for(let j = 1; j <= max; j++) {
+    if(isPrimeNumber(j)) {
+        sum2 += j;
+    }
+}
+formatted = sum2.toLocaleString("en-US");
+console.log(`3. TONG CAC SO NGUYEN TO TU 1 DEN 100: ${formatted}`);
 
 var temp = 11 * 3;
 
@@ -77,5 +78,5 @@ else {//dtb > 8
 }
 
 app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`)
+   //console.log(`Example app listening on port ${port}`)
 })
