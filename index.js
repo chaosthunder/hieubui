@@ -80,11 +80,8 @@ else {//dtb > 8
 
 //TIM SO LON NHAT TRONG MANG
 function findMax(arr) {
-    
-    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
-        return false;
 
-    if(arr.length === 0)
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr) || Array.isArray(arr) && arr.length === 0)
         return false;
 
     let max = arr[0];
@@ -100,11 +97,8 @@ function findMax(arr) {
 
 //TIM TONG CAC SO TRONG MANG
 function calcTotal(arr) {
-    
-    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
-        return false;
 
-    if(arr.length === 0)
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr) || Array.isArray(arr) && arr.length === 0)
         return false;
 
     let total = 0;
@@ -119,10 +113,7 @@ function calcTotal(arr) {
 
 //TIM VI TRI MOT PHAN TU TRONG MANG
 function findElement(arr, x) {
-    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
-        return false;
-
-    if(arr.length === 0)
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr) || Array.isArray(arr) && arr.length === 0)
         return false;
 
     let post = false;
@@ -142,11 +133,33 @@ function findElement(arr, x) {
     return post;
 }
 
-let arrX = [0, 2, 5, 8, 1];
+//TIM TRUNG BINH CONG CAC PHAN TU TRONG MANG
+function calcAverage(arr){
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr) || Array.isArray(arr) && arr.length === 0)
+        return false;
+
+    let count = arr.length;
+    let summary = 0;
+    let average = 0;
+
+    for(let i = 0; i < count; i++) {
+        summary += arr[i];
+    }
+    
+    average = summary / count;
+
+    console.log(`TRUNG BINH CONG CUA MANG ${arr}: ${average}`);
+
+    return average;
+}
+
+//KHU VUC KHOI TAO BIEN & CHAY HAM
+let arr = [0, 2, 4, 8, 5, 1, 8, 1, 6, 5];
 let x = 9;
-findMax(arrX);
-calcTotal(arrX);
-findElement(arrX, x);
+findMax(arr);
+calcTotal(arr);
+findElement(arr, x);
+calcAverage(arr);
 
 let arr2 = ['BUI MINH HIEU', 'NGUYEN THE TUONG', 'DAO DUY TUNG'];
 let str = arr2.join();
