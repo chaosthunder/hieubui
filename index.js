@@ -22,6 +22,7 @@ for(let i = 1; i <= n; i++) {
 formatted = factorial.toLocaleString("en-US");
 console.log(`2. GIAI THUA CUA SO ${n}: ${formatted}`);
 
+//GIAI THUA BANG DE QUY
 
 //3. TINH TONG CAC SO NGUYEN TO TU 1 DEN 100
 let m = 1;
@@ -76,6 +77,80 @@ else if(dtb >= 5 && dtb < 8) {
 else {//dtb > 8
     console.log("Xep loai Gioi!");
 }
+
+//TIM SO LON NHAT TRONG MANG
+function findMax(arr) {
+    
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
+        return false;
+
+    if(arr.length === 0)
+        return false;
+
+    let max = arr[0];
+    let count = arr.length;
+
+    for(var i = 1; i < count; i++) {
+        if(max < arr[i])
+            max = arr[i];
+    }    
+    console.log(`PHAN TU LON NHAT CUA MANG LA: ${max}`);
+    return max;
+}
+
+//TIM TONG CAC SO TRONG MANG
+function calcTotal(arr) {
+    
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
+        return false;
+
+    if(arr.length === 0)
+        return false;
+
+    let total = 0;
+    let count = arr.length;
+
+    for(var i = 0; i < count; i++) {
+        total += arr[i];
+    }
+    console.log(`TONG PHAN TU TRONG MANG LA: ${total}`);
+    return total;
+}
+
+//TIM VI TRI MOT PHAN TU TRONG MANG
+function findElement(arr, x) {
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
+        return false;
+
+    if(arr.length === 0)
+        return false;
+
+    let post = false;
+    let count = arr.length;
+    for(let i = 0; i < count; i++) {
+        if(arr[i] === x) {
+            post = i;
+            break;
+        }
+    }
+    if(post) {
+        console.log(`VI TRI CUA SO ${x} LA ${post}`);
+    }
+    else {
+        console.log(`SO ${x} KHONG TON TAI TRONG MANG`);
+    }
+    return post;
+}
+
+let arrX = [0, 2, 5, 8, 1];
+let x = 9;
+findMax(arrX);
+calcTotal(arrX);
+findElement(arrX, x);
+
+let arr2 = ['BUI MINH HIEU', 'NGUYEN THE TUONG', 'DAO DUY TUNG'];
+let str = arr2.join();
+console.log(str);
 
 app.listen(port, () => {
    //console.log(`Example app listening on port ${port}`)
