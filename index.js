@@ -80,11 +80,8 @@ else {
 
 //TIM SO LON NHAT TRONG MANG
 function findMax(arr) {
-    
-    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
-        return false;
 
-    if(arr.length === 0)
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr) || Array.isArray(arr) && arr.length === 0)
         return false;
 
     let max = arr[0];
@@ -100,11 +97,8 @@ function findMax(arr) {
 
 //TIM TONG CAC SO TRONG MANG
 function calcTotal(arr) {
-    
-    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
-        return false;
 
-    if(arr.length === 0)
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr) || Array.isArray(arr) && arr.length === 0)
         return false;
 
     let total = 0;
@@ -119,10 +113,7 @@ function calcTotal(arr) {
 
 //TIM VI TRI MOT PHAN TU TRONG MANG
 function findElement(arr, x) {
-    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr))
-        return false;
-
-    if(arr.length === 0)
+    if(arr === null || typeof(arr) === 'undefined' || !Array.isArray(arr) || Array.isArray(arr) && arr.length === 0)
         return false;
 
     let post = false;
