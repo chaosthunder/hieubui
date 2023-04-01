@@ -471,13 +471,34 @@ function fixFilePath(str, delimiter) {
     return result.join('/');
 }
 
-function findLongestStr(str) {
+function max(arr) {
+    let count = arr.length;
+    let max = arr[0].length;
+    for(let i = 1; i < count; i++) {
+        if(arr[i].length > max) {
+            max = arr[i].length;
+        }
+    }
+    return max;
+}
 
+function findLongestWord(str) {
+    let temp = str.split(" ");
+    let iMax = max(temp);
+    let words = [];
+
+    for(let i = 0; i < temp.length; i++) {
+        if(temp[i].length === iMax) {
+            words.push(temp[i]);
+        }
+    }
+
+    return words;
 }
 
 
 // let str = "Hello world! We are learning JS.";
-// let str2 = "JS: Toi dang hoc JS nang cao o trung tam Nestech chuyen day ve HTML, CSS, PHP.";
+let str2 = "JS: Toi dang hoc JS nang cao o trung tam Nestech chuyen day ve HTML, CSS, PHP. Nghieng nga luon!";
 // let idx = str.indexOf('o', 1);
 // let idy = str.lastIndexOf('o', 0);
 // let ii = str2.indexOf('JS');
@@ -488,7 +509,7 @@ function findLongestStr(str) {
 // let str6 = 'DAY LA CHUOI THU NGHIEM';
 // let str7 = 'camelCaseStringToConvert';//convert to snake_case
 // let str8 = 'chuoidoixung@chuoidoixung';//check if string is symmetrical
-let str9 = '/C:///WINDOWS/////System32///drivers///';//wrong computer file's path to fix
+let str9 = '//////C:///WINDOWS/////System32///drivers///';//wrong computer file's path to fix
 // let strArr = ['chuoi chien', 'chuoi nuong moi', 'chuoi luoc', 'chuoi xao', 'chuoi hap', 'kem chuoi', 'che chuoi'];
 // let len = 10;
 // let keyword = "PHP";
@@ -506,6 +527,7 @@ let str9 = '/C:///WINDOWS/////System32///drivers///';//wrong computer file's pat
 // console.log(`CHUOI KET QUA SNAKE CASE: ${convertSnakeCase(str7)}`);
 // console.log(`KIEM TRA CHUOI DOI XUNG: ${checkStrSymmetrical(str8)}`);
 console.log(`DUONG DAN TAP TIN DUNG: ${fixFilePath(str9, '/')}`);
+console.log(`TU DAI NHAT TRONG CHUOI: ${findLongestWord(str2)}`);
 
 //OBJECT
 function sortNhanVien(arr) {
