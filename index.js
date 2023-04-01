@@ -451,21 +451,24 @@ function checkStrSymmetrical(str) {
 //     return arr.join('/');
 // }
 
-function fixFilePath(str) {
-    let result = [];
-    let temp = str.split('/');
-    let count = temp.length;
+function fixFilePath(str, delimiter) {
+    let result = str.split(delimiter);
+    let count = result.length;
 
     for(let i = 0; i < count; i++) {
-        if(temp[i] === "") {
-            count--;
-            temp.splice(i, 1);
-            console.log(temp);
+        if(result[i] === "") {
+            result.splice(i, 1);
+            if(i > 0) {
+                i--;
+            }
+            else {
+                i = -1;
+                continue;
+            }
         }
-        console.log(`${count}`);
+        count = result.length;
     }
-    console.log(`${temp}`);
-    return temp.join('/');
+    return result.join('/');
 }
 
 function findLongestStr(str) {
@@ -485,7 +488,7 @@ function findLongestStr(str) {
 // let str6 = 'DAY LA CHUOI THU NGHIEM';
 // let str7 = 'camelCaseStringToConvert';//convert to snake_case
 // let str8 = 'chuoidoixung@chuoidoixung';//check if string is symmetrical
-let str9 = '///C//WINDOWS////System32/drivers////etc//';//wrong computer file's path to fix
+let str9 = '/C:///WINDOWS/////System32///drivers///';//wrong computer file's path to fix
 // let strArr = ['chuoi chien', 'chuoi nuong moi', 'chuoi luoc', 'chuoi xao', 'chuoi hap', 'kem chuoi', 'che chuoi'];
 // let len = 10;
 // let keyword = "PHP";
@@ -502,7 +505,7 @@ let str9 = '///C//WINDOWS////System32/drivers////etc//';//wrong computer file's 
 // console.log(`SO LAN XUAT HIEN CUA TU KHOA ${keyword}: ${countOccurences(str2, keyword)}`);
 // console.log(`CHUOI KET QUA SNAKE CASE: ${convertSnakeCase(str7)}`);
 // console.log(`KIEM TRA CHUOI DOI XUNG: ${checkStrSymmetrical(str8)}`);
-console.log(`DUONG DAN TAP TIN DUNG: ${fixFilePath(str9)}`);
+console.log(`DUONG DAN TAP TIN DUNG: ${fixFilePath(str9, '/')}`);
 
 //OBJECT
 function sortNhanVien(arr) {
